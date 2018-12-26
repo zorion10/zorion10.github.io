@@ -1,85 +1,136 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Greetings!</title>
+	<meta charset="utf-8"/>
+	<title>ZeSearch</title>
 	</head>
 	<body>
+	<div id="main">
+		<h1 onmouseover="hmousehover(this)" onmouseout="hmouseout(this)" onmousedown="hmousedown(this)">
+			ZeSearch			
+		</h1>
+		<input type="text" placeholder="HI! Search here!"id="SearchBar" "></input>
+		<button id="SearchButton" onclick="Search()">Search</button>		
+	</div>
 	</body>
 	<script>
-		var p;
-		var greet;
-
-		function init()
+		function clearField(field)
 		{
-			body=document.getElementsByTagName("body")[0];
-			h1=document.createElement("h1");
-			h1.innerHTML="Press Here";
-			body.appendChild(h1);
-			p=document.createElement("p");
-			body.appendChild(p);
-			h1.onclick=function(){oclick(h1)};
-			greet="At Christmas I no more desire a rose<br>Than wish a snow in May’s new-fangled mirth<br>-Love’s Labours Lost (Act 1, Scene 1)<br><br>0x41 0x74 0x20 0x43 0x68 0x72 0x69 0x73 0x74 0x6d 0x61 0x73 0x20 0x49 0x20 0x6e 0x6f 0x20 0x6d 0x6f 0x72 0x65 0x20 0x64 0x65 0x73 0x69 0x72 0x65 0x20 0x61 0x20 0x72 0x6f 0x73 0x65 0xa 0x54 0x68 0x61 0x6e 0x20 0x77 0x69 0x73 0x68 0x20 0x61 0x20 0x73 0x6e 0x6f 0x77 0x20 0x69 0x6e 0x20 0x4d 0x61 0x79 0x2019 0x73 0x20 0x6e 0x65 0x77 0x2d 0x66 0x61 0x6e 0x67 0x6c 0x65 0x64 0x20 0x6d 0x69 0x72 0x74 0x68 0xa 0x2d 0x4c 0x6f 0x76 0x65 0x2019 0x73 0x20 0x4c 0x61 0x62 0x6f 0x75 0x72 0x73 0x20 0x4c 0x6f 0x73 0x74 0x20 0x28 0x41 0x63 0x74 0x20 0x31 0x2c 0x20 0x53 0x63 0x65 0x6e 0x65 0x20 0x31 0x29 -Zorion10 ";
+			field.value="";
 		}
-		function oclick(h)
+		function runInterval()
 		{
-			h.innerHTML="Merry Christmas!";
-			id=setInterval(putIn,20);
-			h.onclick=function(){window.location.href="http://www.google.com/"}
+			var p=document.getElementsByTagName("p")[0];
+			p.innerHTML=(new Date()).toString();
 		}
-		var id;
-		var buffer="";
-		var i=0;
-		function putIn()
+		function load()
 		{
-			console.log("outIn");
-			buffer=buffer.concat(greet[i++]);
-			console.log(buffer);
-			p.innerHTML=buffer;
-			if(i>=greet.length)
-			{
-				clearInterval(id);
-			}
+			var time=document.createElement("p");
+			time.innerHTML=(new Date()).toString();
+			bod=document.getElementsByTagName("body")[0];
+			console.log(time.innerHTML);
+			bod.appendChild(time);
+			setInterval(runInterval,250);
+			var sb=document.getElementById("SearchBar");
+			sb.addEventListener("keyup", function(event) {
+				event.preventDefault();
+				if (event.keyCode === 13) {
+					Search();
+					}
+				});
 		}
-		onload=init();
-	</script>
-	<style>
-	@import url('https://fonts.googleapis.com/css?family=Gugi');
-		body{font-family: 'Gugi', cursive;}
-		h1
-		{	
-			text-align:center;
-			font-size:72px;
-			color: red;
-			transition: 0s;
-		}
-		h1:hover
-		{	
-			transform:translateY(-10px);
-			transition: 0s;
-			text-align:center;
-			font-size:72px;
-			color: green;
-			border-bottom: grey solid 10px;
-			border-right: grey solid 10px;
-			border-top: darkgrey solid 10px;
-			border-left: darkgrey solid 10px;
-			border-radius:0px;
-			background-color:lightgrey;
-		}
-		h1:active
-		{	
-			transition: 0s;
-			text-align:center;
-			font-size:72px;
-			color: green;
-			border-bottom: grey solid 5px;
-			border-right: grey solid 5px;
-			border-top: darkgrey solid 5px;
-			border-left: darkgrey solid 5px;
-			border-radius:0px;
-			background-color:lightgrey;
-			transform:translateY(-5px)
-		}
+		function Search()
+		{
+			var sb=document.getElementById("SearchBar");
+			var val= sb.value;
+			console.log("val= ".concat(toString(val)));
+			window.location.href=("http://www.google.com/search?q="+val);
+			console.log("Searching");
+			console.log((new Date()).toString());
 			
+		}
+		function hmousehover(a){
+			a.innerHTML="HELLO!";
+		}
+		function hmouseout(t)
+		{
+			t.innerHTML="ZeSearch";
+		}
+		function hmousedown(t)
+		{
+			t.innerHTML="\u00a0";
+		}
+		onload=load();
+	</script>	
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+	@import url('https://fonts.googleapis.com/css?family=Gugi');
+	body {
+		text-align:center;
+		size:100% 100%;
+		display:block;
+		size: 100% 100%;
+		}
+	button{
+		display:inline-block;
+		background-color: #F5F5F5;
+		font-family: 'Gugi', cursive;
+		color: #DCDCDC;
+		font-size: 20px;
+		width: 100px; 
+		height:45px;
+		border: 5px solid silver;
+		border-left: 5px solid #808080;
+		border-bottom: 5px solid #808080;
+		transition: 0.1s;
+	}	
+	button:hover{
+		color:black;
+		font-size: 20px;
+		border: 5px solid silver;
+		border-left: 5px solid #808080;
+		border-bottom: 5px solid #808080;
+		transition: 0.1s;
+	}
+	button:active{
+		size: 104px 39x;
+		background-color:#E8E8E8;
+		border: 3px solid #606060;
+		border-left: 3px solid #808080;
+		border-bottom: 3px solid #808080;
+	}
+	h1 {
+		text-align:center;
+		font-family: 'Gugi', cursive;
+		color: black;
+		font-size:100px;
+		}
+	p {
+		text-align:right;
+		font-family: 'Roboto', monospace;
+		color: black;
+		font-size:12px;
+		position: fixed; bottom: 0; width:100%;
+		}
+	input{
+		color:black;
+		display:inline-block;
+		font-family: 'Gugi', cursive;
+		font-size: 20px;
+		width: 20%; 
+		height:45px;
+		border:none;
+		transition: 1s;
+	}	
+	input:focus
+	{	
+		width:80%;
+		height:35px;
+		border: 5px solid silver;
+		border-left: 5px solid #808080;
+		border-bottom: 5px solid #808080;
+		background-color:#F5F5F5;
+		transition: 1s;
+	}
 	</style>
-	</html>
+</html>	
