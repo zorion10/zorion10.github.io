@@ -1,2 +1,2 @@
-# Temporaty
-This is a website to greet people for stuff
+# Website
+This is a website.
