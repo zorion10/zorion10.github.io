@@ -2,136 +2,47 @@
 <html>
 	<head>
 	<meta charset="utf-8"/>
-	<title>ZeSearch</title>
+	<title>Darkness</title>
 	</head>
 	<body>
-	<div id="main">
-		<h1 onmouseover="hmousehover(this)" onmouseout="hmouseout(this)" onmousedown="hmousedown(this)">
-		 Priyanshi🧡!		
-		</h1>
-<p>click above ^</p>
-		<input type="text" placeholder="Click the heading ❤️"id="SearchBar" "></input>
-		<button id="SearchButton" onclick="Search()">Search</button>		
-	</div>
-	</body>
-	<script>
-		function clearField(field)
-		{
-			field.value="";
-		}
-		function runInterval()
-		{t
-			var p=document.getElementsByTagName("p")[0];
-			p.innerHTML=(new Date()).toString();
-		}
-		function load()
-		{
-			var time=document.createElement("p");
-			time.innerHTML=(new Date()).toString();
-			bod=document.getElementsByTagName("body")[0];
-			console.log(time.innerHTML);
-			bod.appendChild(time);
-			setInterval(runInterval,250);
-			var sb=document.getElementById("SearchBar");
-			sb.addEventListener("keyup", function(event) {
-				event.preventDefault();
-				if (event.keyCode === 13) {
-					Search();
-					}
-				});
-		}
-		function Search()
-		{
-			var sb=document.getElementById("SearchBar");
-			var val= sb.value;
-			console.log("val= ".concat(toString(val)));
-			window.location.href=("http://www.google.com/search?q="+val);
-			console.log("Searching");
-			console.log((new Date()).toString());
-			
-		}
-		function hmousehover(a){
-			a.innerHTML="Oh!";
-		}
-		function hmouseout(t)
-		{
-			t.innerHTML="PRIYANSHI! HAPPY BIRTHDAY! ";
-		}
-		function hmousedown(t)
-		{
-			t.innerHTML="Happy Birthday!" ;
-		}
-		onload=load();
-	</script>	
+		<div id="main">
+		    <a href='https://t.me/zed_cult'>t.me/zed_cult</a>
+		</div>
+	</body>	
 	<style>
-	@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
-	@import url('https://fonts.googleapis.com/css?family=Gugi');
-	body {
-		text-align:center;
-		size:100% 100%;
-		display:block;
-		size: 100% 100%;
-		}
-	button{
-		display:inline-block;
-		background-color: #F5F5F5;
-		font-family: 'Gugi', cursive;
-		color: #DCDCDC;
-		font-size: 20px;
-		width: 100px; 
-		height:45px;
-		border: 5px solid silver;
-		border-left: 5px solid #808080;
-		border-bottom: 5px solid #808080;
-		transition: 0.1s;
-	}	
-	button:hover{
-		color:black;
-		font-size: 20px;
-		border: 5px solid silver;
-		border-left: 5px solid #808080;
-		border-bottom: 5px solid #808080;
-		transition: 0.1s;
-	}
-	button:active{
-		size: 104px 39x;
-		background-color:#E8E8E8;
-		border: 3px solid #606060;
-		border-left: 3px solid #808080;
-		border-bottom: 3px solid #808080;
-	}
-	h1 {
-		text-align:center;
-		font-family: 'Gugi', cursive;
-		color: black;
-		font-size:100px;
-		}
-	p {
-		text-align:right;
-		font-family: 'Roboto', monospace;
-		color: black;
-		font-size:12px;
-		position: fixed; bottom: 0; width:100%;
-		}
-	input{
-		color:black;
-		display:inline-block;
-		font-family: 'Gugi', cursive;
-		font-size: 20px;
-		width: 20%; 
-		height:45px;
-		border:none;
-		transition: 1s;
-	}	
-	input:focus
-	{	
-		width:80%;
-		height:35px;
-		border: 5px solid silver;
-		border-left: 5px solid #808080;
-		border-bottom: 5px solid #808080;
-		background-color:#F5F5F5;
-		transition: 1s;
-	}
-	</style>
+	@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+	    body {
+	        background:black;
+	    }
+	    a {
+	        text-decoration: none;
+	    }
+	    #main{
+	        width:100%;
+	        height:100%;
+	        vertical-align:middle;
+	        text-align:center;
+	        display:inline-block;
+	        margin:auto;
+	        padding-top: 20%;
+	    }
+	    #main a{
+	        margin:auto;
+	        color:lime;
+	        font-weight:normal;
+	        font-size: 128px;
+	        font-family: 'Press Start 2P', cursive;
+	    }
+	    #main a:hover{
+	        cursor:none;
+	        font-weight:normal;
+	        animation:o 1s infinite;
+	    }
+	    @keyframes o{
+	        50%{
+	            color:cyan;
+	            font-size:145px;
+	        }
+	    }
+    </style>
 </html>	
